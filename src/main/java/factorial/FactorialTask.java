@@ -1,3 +1,5 @@
+package factorial;
+
 import com.google.common.math.BigIntegerMath;
 
 import java.math.BigInteger;
