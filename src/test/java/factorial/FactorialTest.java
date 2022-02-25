@@ -1,6 +1,5 @@
 package factorial;
 
-import factorial.Factorial;
 import org.junit.Test;
 
 import java.math.BigInteger;
