@@ -1,7 +1,8 @@
+package factorial;
+
 import org.junit.Test;
 
 import java.math.BigInteger;
-import java.util.concurrent.ForkJoinPool;
 
 import static org.junit.Assert.assertEquals;
 
@@ -27,13 +28,5 @@ public class FactorialTest {
         BigInteger result = factorial.calculateFactorial(5);
 
         assertEquals(result, new BigInteger("120"));
-    }
-
-    @Test
-    public void testFactorialTask() {
-        ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
-        BigInteger result = forkJoinPool.invoke(new Factorial.FactorialTask(BigInteger.valueOf(4)));
-
-        assertEquals(result, new BigInteger("24"));
     }
 }

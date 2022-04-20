@@ -1,5 +1,6 @@
+package quicksort;
+
 import java.util.Random;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 public class QuickSort extends RecursiveTask<Integer> {
@@ -51,7 +52,7 @@ public class QuickSort extends RecursiveTask<Integer> {
 
         int p = partition(start, end, arr);
 
-        QuickSort left = new QuickSort(start,p - 1, arr);
+        QuickSort left = new QuickSort(start, p - 1, arr);
         QuickSort right = new QuickSort(p + 1, end, arr);
 
         left.fork();
@@ -59,17 +60,5 @@ public class QuickSort extends RecursiveTask<Integer> {
         left.join();
 
         return null;
-    }
-
-    public static void main(String args[]) {
-        int n = 7;
-        int[] arr = {54, 64, 95, 82, 12, 32, 63};
-
-        ForkJoinPool pool = ForkJoinPool.commonPool();
-
-        pool.invoke(new QuickSort(0, n - 1, arr));
-
-        for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
     }
 }
